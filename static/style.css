@@ -1,0 +1,52 @@
+/* Body styles */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+
+/* Form styles */
+form {
+  background-color: #fff;
+  padding: 50px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+select {
+  width: 50%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+
+button {
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+input {
+  width: 100%;
+  height: 50px;
+  margin-bottom: 10px;
+  padding: 5px;
+
+}
+
+/* Response styles */
+#response {
+  margin-top: 20px;
+  font-weight: bold;
+}
+

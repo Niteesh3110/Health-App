@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+	<title>healthbot</title>
+</head>
+<body>
+	<!-- basic HTML here -->
+	<form id="chat-form">
+
+		<label for='condition'>Health Condition: </label>
+		<select id="condition" name="condition">
+			<option value="">Select a condition</option>
+			<option value="allergies">Allergies</option>
+			<option value="colds_and_flu">Colds and Flu</option>
+			<option value="conjunctivitis">Conjunctivitis ("pink eye“)</option>
+			<option value="diarrhea">Diarrhea</option>
+			<option value="headaches">Headaches</option>
+			<option value="stomach_aches">Stomach Aches</option>
+		</select>
+
+		<label for='severity'>Severity</label>
+		<select id='severity' name='severity'>
+			<option value="">Select severity</option>
+			<option value="low">Low</option>
+			<option value="moderate">Moderate</option>
+			<option value="extreme">Extreme</option>	
+		</select>
+
+		<input type="text" name="userInput" id='user_input' placeholder="Ask me anything!!!">
+
+		<button type='submit' onclick="document.getElementById('user_input').value = ''">Submit</button>
+
+	</form>
+	<div id='response'></div>
+	<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+	<script type="text/javascript">
+		// Accessing the respective elements
+		const form = document.getElementById('chat-form');
+		const responseDiv = document.getElementById('response');
+
+		// Handling Submission of form here
+		form.addEventListener('submit', function(event) {
+			event.preventDefault();
+
+			const condition = document.getElementById('condition').value;
+			const severity = document.getElementById('severity').value;
+			const user_input = document.getElementById('user_input').value;
+
+			// fetching the data here
+			axios.post('/api/chat', { severity, condition, user_input })
+				.then(function (response) {
+					responseDiv.innerText = response.data;
+					console.log(response.data)
+				})
+				.catch(function(error){
+					console.error(error)
+				});
+
+		})
+	</script>
+</body>
+</html>
