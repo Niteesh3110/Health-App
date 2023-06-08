@@ -5,3 +5,6 @@ __pycache__/
 # Flask
 instance/
 .venv/
+
+#.env
+.env
